@@ -1,6 +1,7 @@
 name: Workflow for install-docker
 
 on:
+  workflow_dispatch:
   push:
     branches:
       - master
