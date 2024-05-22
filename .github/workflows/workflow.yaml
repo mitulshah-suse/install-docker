@@ -2,6 +2,9 @@ name: Workflow for install-docker
 
 on:
   workflow_dispatch:
+    inputs:
+      test:
+        type: string
   push:
     branches:
       - master
@@ -37,6 +40,10 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
+      - name: Check input
+        run: |
+          echo "Inside input"
+          echo ${{ github.event.inputs.test }}
       - name: Test
         run: dapper test
 
