@@ -25,6 +25,10 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
+      - name: Check input
+        run: |
+          echo "Inside input"
+          echo ${{ github.event.inputs.test }}
       - name: Validate
         run: dapper validate
 
@@ -40,10 +44,6 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
-      - name: Check input
-        run: |
-          echo "Inside input"
-          echo ${{ github.event.inputs.test }}
       - name: Test
         run: dapper test
 
